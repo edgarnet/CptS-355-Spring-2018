@@ -2,4 +2,4 @@
 *.pdf
 
 # Build
-build/*
+build/
