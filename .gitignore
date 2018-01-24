@@ -1,2 +1,5 @@
 # Assignments
 *.pdf
+
+# Build
+build/*
