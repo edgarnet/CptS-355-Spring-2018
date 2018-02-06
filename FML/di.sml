@@ -68,22 +68,22 @@ fun groupLeft v [] buf = [buf]
                                 then buf::(groupLeft v ? [x]) 
                                 else groupLeft v ? ([x]@buf)
                                 
-fun groupNLeft v [] = [[]]
-  | groupNLeft v x = reverse(groupLeft v (reverse x) [])
+fun groupNleft v [] = [[]]
+  | groupNleft v x = reverse(groupLeft v (reverse x) [])
 
-fun myTest_groupNLeft v x output =
-  if groupNLeft v x = output then true else false
+fun myTest_groupNleft v x output =
+  if groupNleft v x = output then true else false
 
 fun groupRight v [] buf = [buf]
   | groupRight v (x :: ?) buf = if length buf = v
                                  then buf::(groupRight v ? [x])
                                  else groupRight v ? (buf@[x])
 
-fun groupNRight v [] = [[]]
-  | groupNRight v x = groupRight v x []
+fun groupNright v [] = [[]]
+  | groupNright v x = groupRight v x []
 
-fun myTest_groupNRight v x output = 
-  if groupNRight v x = output then true else false
+fun myTest_groupNright v x output = 
+  if groupNright v x = output then true else false
 
 val test1a_inList = myTest_inList (1, []) false
 val test2a_inList = myTest_inList (1,[1,2,3]) true
@@ -103,9 +103,9 @@ val test3e_numToSum = myTest_numbersToSum 1 [2] []
 val test1f_replace = myTest_replace 3 40 [1, 2, 3, 4, 5, 6] [1,2,3,40,5,6]
 val test2f_replace = myTest_replace 0 "X" ["a", "b", "c", "d"] ["X","b","c","d"]
 val test3f_replace = myTest_replace 4 false [true, false, true, true, true] [true,false,true,true,false]
-val test1g_groupNLeft = myTest_groupNLeft 2 [1, 2, 3, 4, 5] [[1], [2, 3], [4, 5]]
-val test2g_groupNLeft = myTest_groupNLeft 3 [1, 2, 3, 4, 5] [[1, 2], [3, 4, 5]]
-val test3g_groupNLeft = myTest_groupNLeft 3 [] [[]]
-val test1h_groupNRight = myTest_groupNRight 2 [1, 2, 3, 4, 5] [[1, 2], [3, 4], [5]]
-val test2h_groupNRight = myTest_groupNRight 3 [1, 2, 3, 4, 5] [[1, 2, 3], [4,5]]
-val test3h_groupNRight = myTest_groupNRight 3 [] [[]]
+val test1g_groupNLeft = myTest_groupNleft 2 [1, 2, 3, 4, 5] [[1], [2, 3], [4, 5]]
+val test2g_groupNLeft = myTest_groupNleft 3 [1, 2, 3, 4, 5] [[1, 2], [3, 4, 5]]
+val test3g_groupNLeft = myTest_groupNleft 3 [] [[]]
+val test1h_groupNRight = myTest_groupNright 2 [1, 2, 3, 4, 5] [[1, 2], [3, 4], [5]]
+val test2h_groupNRight = myTest_groupNright 3 [1, 2, 3, 4, 5] [[1, 2, 3], [4,5]]
+val test3h_groupNRight = myTest_groupNright 3 [] [[]]
