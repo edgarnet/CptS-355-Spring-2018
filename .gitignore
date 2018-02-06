@@ -1,5 +1,6 @@
 # Assignments
 *.pdf
+*.swp
 
 # Build
 build/
